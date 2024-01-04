@@ -1,0 +1,13 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+staged_files=$(git diff --cached --name-only --diff-filter=ACM)
+
+bun run format
+
+for file in $staged_files
+do
+  git add $file
+done
+
+bun run lint

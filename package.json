@@ -1,0 +1,20 @@
+{
+  "name": "ikadips-guard-api",
+  "author": {
+    "name": "Ikattan - Lilian BAUDRY",
+    "email": "lilian.baudry21@gmail.com"
+  },
+  "module": "index.ts",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "scripts": {
+    "start": "bun run index.ts",
+    "watch": "bun run --watch index.ts",
+    "dev": "bun run index.ts"
+  },
+  "type": "module"
+}

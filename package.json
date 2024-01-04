@@ -4,17 +4,20 @@
     "name": "Ikattan - Lilian BAUDRY",
     "email": "lilian.baudry21@gmail.com"
   },
-  "module": "index.ts",
+  "type": "module",
+  "module": "src/index.ts",
+  "scripts": {
+    "start": "bun run src/index.ts",
+    "watch": "bun run --watch src/index.ts",
+    "dev": "bun run src/index.ts"
+  },
+  "dependencies": {
+    "elysia": "^0.8.8"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
   "peerDependencies": {
     "typescript": "^5.0.0"
-  },
-  "scripts": {
-    "start": "bun run index.ts",
-    "watch": "bun run --watch index.ts",
-    "dev": "bun run index.ts"
-  },
-  "type": "module"
+  }
 }

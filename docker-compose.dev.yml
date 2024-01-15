@@ -1,0 +1,12 @@
+version: '3.9'
+
+services:
+  api:
+    build:
+      context: .
+      dockerfile: docker/bun/Dockerfile
+    volumes:
+      - .:/app
+    ports:
+      - ${PORT}:8000
+    command: sh -c "bun i && bun run watch"

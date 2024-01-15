@@ -1,7 +1,7 @@
 import { Elysia } from 'elysia';
 import { usersRoute } from './routes/users';
 
-const PORT = Bun.env.PORT;
+const PORT = 8000;
 const app = new Elysia();
 
 app

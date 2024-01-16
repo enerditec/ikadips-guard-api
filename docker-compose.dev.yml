@@ -1,12 +1,24 @@
 version: '3.9'
 
 services:
-  api:
+  guard-api:
+    container_name: guard-api
     build:
       context: .
       dockerfile: docker/bun/Dockerfile
     volumes:
       - .:/app
     ports:
-      - ${PORT}:8000
+      - ${PORT}:8000 # guard-api
+      - 5555:5555 # prisma studio
     command: sh -c "bun i && bun run watch"
+
+  guard-db:
+    container_name: guard-db
+    image: postgres:16.1-alpine
+    environment:
+      POSTGRES_USER: ${DB_USER}
+      POSTGRES_PASSWORD: ${DB_PASSWORD}
+      POSTGRES_DB: ${DB_NAME}
+    volumes:
+      - ./database:/var/lib/postgresql/data

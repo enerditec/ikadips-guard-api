@@ -1,5 +1,5 @@
-FROM oven/bun:alpine
+FROM oven/bun:latest
 
-RUN apk add --no-cache git
+COPY --from=node:18 /usr/local/bin/node /usr/local/bin/node
 
 WORKDIR /app

@@ -1,7 +1,14 @@
 import { app } from './app';
+import logger from '@/utils/logger/winston';
 
-const PORT = 8000;
+const INTERNAL_PORT = 8000;
+const EXTERNAL_PORT = Bun.env.PORT;
 
-app.listen(PORT, () => {
-  console.log(`🦊 Elysia is running at ${app.server?.hostname}:${PORT}`);
+app.listen(INTERNAL_PORT, () => {
+  if (Bun.env.ENVIRONMENT === 'production') {
+    logger.info(`Elysia is running at guard-api:${INTERNAL_PORT}`);
+    return;
+  }
+
+  logger.info(`Elysia is running at ${app.server?.hostname}:${EXTERNAL_PORT}`);
 });

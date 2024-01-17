@@ -1,0 +1,9 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+staged_files=$(git diff --cached --name-only --diff-filter=ACM)
+
+bunx prettier --write --ignore-unknown --no-error-on-unmatched-pattern -- $staged_files
+git add $staged_files
+
+bun run lint
